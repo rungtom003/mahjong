@@ -45,7 +45,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto fontkanit" id="activeclass">
-                        <li class="nav-item active" id="activeclass_home">
+                        <li class="nav-item" id="activeclass_home">
                             <a class="nav-link" asp-controller="Mahjong" asp-action="Index">
                                 หน้าแรก
                                 <span class="sr-only">(current)</span>
@@ -137,29 +137,5 @@
     <!-- Additional Scripts -->
     <script src="~/mahjong/assets/js/custom.js"></script>
     <script src="~/mahjong/assets/js/owl.js"></script>
-    <script>
-        let paht = $(location).attr('href');
-        console.log(paht)
-        if (paht === "https://localhost:44394/") {
-            $("#activeclass > li").removeClass("active");
-            $("#activeclass_home").addClass("active");
-        }
-        else if (paht === "https://localhost:44394/Mahjong/Store") {
-            $("#activeclass > li").removeClass("active");
-            $("#activeclass_store").addClass("active");
-        }
-        else if (paht === "https://localhost:44394/Mahjong/Contact") {
-            $("#activeclass > li").removeClass("active");
-            $("#activeclass_contact").addClass("active");
-        }
-        else if (paht === "https://localhost:44394/Mahjong/Register") {
-            $("#activeclass > li").removeClass("active");
-            $("#activeclass_register").addClass("active");
-        }
-        else {
-            $("#activeclass > li").removeClass("active");
-            $("#activeclass_o").addClass("active");
-        }
-    </script>
 </body>
 </html>
