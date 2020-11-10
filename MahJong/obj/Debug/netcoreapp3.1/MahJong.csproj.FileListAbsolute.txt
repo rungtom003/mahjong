@@ -272,3 +272,4 @@ C:\Users\6300964\source\repos\MahJong\MahJong\bin\Debug\netcoreapp3.1\Microsoft.
 C:\Users\6300964\source\repos\MahJong\MahJong\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.Design.dll
 C:\Users\6300964\source\repos\MahJong\MahJong\obj\Debug\netcoreapp3.1\MahJong.csproj.CoreCompileInputs.cache
 C:\Users\6300964\source\repos\MahJong\MahJong\obj\Debug\netcoreapp3.1\MahJong.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\6300964\source\repos\MahJong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_StoreLayout.cshtml.g.cs
