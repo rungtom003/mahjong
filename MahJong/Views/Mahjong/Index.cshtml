@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MahJong.Models.databases.Store>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_MahjongLayout.cshtml";
+}
+
+<!-- Page Content -->
+<!-- Banner Starts Here -->
+<div class="banner header-text">
+    <div class="owl-banner owl-carousel">
+        <div class="banner-item-01">
+            <div class="text-content">
+                <h2>Replayground</h2>
+            </div>
+        </div>
+        <div class="banner-item-02">
+            <div class="text-content">
+                <h2>Replayground</h2>
+            </div>
+        </div>
+        <div class="banner-item-03">
+            <div class="text-content">
+                <h2>Replayground</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Ends Here -->
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2 class="fontkanit">ร้านฮิตติดดาว</h2>
+                    <a href="products.html">view more <i class="fa fa-angle-right"></i></a>
+                </div>
+            </div>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.SId" class="services-item-image"><img src="~/mahjong/img/@Html.DisplayFor(modelItem => item.SName)/profile.jpg" class="img-fluid" alt="@item.SName"></a>
+                        <div class="down-content">
+                            <h4><a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.SId">@Html.DisplayFor(modelItem => item.SName)</a></h4>
+                            <p style="margin: 0;" class="fontkanit"> เวลาปิดการจอง &nbsp;&nbsp;|&nbsp;&nbsp; @Html.DisplayFor(modelItem => item.SCloseTime)</p>
+                            <p style="margin: 0;" class="fontkanit"> โต๊ะว่าง &nbsp;&nbsp;|&nbsp;&nbsp; 25 โต๊ะ </p>
+                        </div>
+                    </div>
+                </div>
+            }
+          </div>
+    </div>
+</div>
+

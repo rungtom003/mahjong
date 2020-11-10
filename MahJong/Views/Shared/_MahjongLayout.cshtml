@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link rel="icon" href="~/mahjong/assets/images/favicon.ico" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+
+    <title>PHPJabbers.com | Free Online Store Website Template</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="~/mahjong/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="~/mahjong/assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="~/mahjong/assets/css/style.css" />
+    <link rel="stylesheet" href="~/mahjong/assets/css/owl.css" />
+    <link href="~/mahjong/assets/css/MyStyleSheet.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    <!-- Header -->
+    <header class="">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Mahjong" asp-action="Index"><h2>MahJong<em>.com</em></h2></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto fontkanit" id="activeclass">
+                        <li class="nav-item" id="activeclass_home">
+                            <a class="nav-link" asp-controller="Mahjong" asp-action="Index">
+                                หน้าแรก
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Store" id="activeclass_store">ร้าน</a></li>
+
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Contact" id="activeclass_contact">ติดต่อ</a></li>
+
+                        <li class="nav-item dropdown" id="activeclass_o">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">อื่นๆ</a>
+
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="about-us.html">About Us</a>
+                                <a class="dropdown-item" href="blog.html">Blog</a>
+                                <a class="dropdown-item" href="testimonials.html">Testimonials</a>
+                                <a class="dropdown-item" href="terms.html">Terms</a>
+                            </div>
+                        </li>
+
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Contact" id="activeclass_contact" data-toggle="modal" data-target="#modalLogin">ล็อคอิน</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Register" id="activeclass_register">สมัครสมาชิก</a></li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Contact" id="activeclass_contact">ออกจากระบบ</a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div>
+        @RenderBody()
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="inner-content">
+                        <p>Copyright © 2020 Mahjong.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="modalLogin" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">ล็อคอิน</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form>
+                    <div class="modal-body">
+
+                        <div class="form-group">
+                            <label for="username">ชื่อผู้ใช้</label>
+                            <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Username">
+                        </div>
+                        <div class="form-group">
+                            <label for="pass">รหัสผ่าน</label>
+                            <input type="password" class="form-control" id="pass" placeholder="Password">
+                        </div>
+                        <p class="text-center">OR</p>
+                        <hr />
+                        <div class="text-center">
+                            <button type="button" class="btn btn-primary">Sign in with Facebook</button>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">ยกเลิก</button>
+                        <button type="button" class="btn btn-success">ล็อคอิน</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/mahjong/vendor/jquery/jquery.min.js"></script>
+    <script src="~/mahjong/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="~/mahjong/assets/js/custom.js"></script>
+    <script src="~/mahjong/assets/js/owl.js"></script>
+</body>
+</html>

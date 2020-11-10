@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MahJong.Models.databases.Store>
+@{
+    ViewData["Title"] = "Store";
+    Layout = "~/Views/Shared/_MahjongLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url();">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2 class="fontkanit">ร้าน</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="products">
+    <div class="container">
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.SId"><img src="~/mahjong/img/@Html.DisplayFor(modelItem => item.SName)/profile.jpg" alt="@item.SName"></a>
+                        <div class="down-content">
+                            <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.SId"><h4>@Html.DisplayFor(modelItem => item.SName)</h4></a>
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div class="col-md-12">
+                <ul class="pages">
+                    <li class="active"><a href="#">1</a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href=""><i class="fa fa-angle-double-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

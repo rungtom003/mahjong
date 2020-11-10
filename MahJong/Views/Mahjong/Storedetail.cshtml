@@ -1,0 +1,35 @@
+﻿@model MahJong.Models.databases.Store
+@{
+    ViewData["Title"] = "Storedetail";
+    Layout = "~/Views/Shared/_MahjongLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url(/mahjong/img/@Html.DisplayFor(model => model.SName)/background.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2>@Html.DisplayFor(item => item.SName)</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container fontkanit" style="margin-top:5%;">
+    <p style="font-size:18px">เวลาปิดการจอง : <span>@Html.DisplayFor(item => item.SCloseTime)</span></p>
+    <p style="font-size:18px">ว่าง : <span>25 โต๊ะ</span></p>
+</div>
+
+<div class="latest-products">
+    <div class="container">     
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2 class="fontkanit">จองโต๊ะ</h2>
+                </div>
+            </div>        
+        </div>
+    </div>
+</div>
