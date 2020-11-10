@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MahJong.Models.db.table.Stores>
 @{
     ViewData["Title"] = "Store";
     Layout = "~/Views/Shared/_MahjongLayout.cshtml";
@@ -20,42 +20,29 @@
 <div class="products">
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a asp-controller="Mahjong" asp-action="Storedetail"><img src="~/mahjong/img/Replayground/repay.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a asp-controller="Mahjong" asp-action="Storedetail"><h4>Replayground</h4></a>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a asp-controller="Mahjong" asp-action="Storedetail"><img src="~/mahjong/img/Replayground/repay.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a asp-controller="Mahjong" asp-action="Storedetail"><h4>Replayground</h4></a>
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.s_id"><img src="~/mahjong/img/@Html.DisplayFor(modelItem => item.s_name)/profile.jpg" alt="@item.s_name"></a>
+                        <div class="down-content">
+                            <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.s_id"><h4>@Html.DisplayFor(modelItem => item.s_name)</h4></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="product-item">
-                    <a asp-controller="Mahjong" asp-action="Storedetail"><img src="~/mahjong/img/Replayground/repay.jpg" alt=""></a>
-                    <div class="down-content">
-                        <a asp-controller="Mahjong" asp-action="Storedetail"><h4>Replayground</h4></a>
-                    </div>
-                </div>
-            </div>          
+            }
 
             <div class="col-md-12">
                 <ul class="pages">
                     <li class="active"><a href="#">1</a></li>
-                    <li ><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#"><i class="fa fa-angle-double-right"></i></a></li>
+                    <li><a href="">2</a></li>
+                    <li><a href="">3</a></li>
+                    <li><a href="">4</a></li>
+                    <li><a href=""><i class="fa fa-angle-double-right"></i></a></li>
                 </ul>
             </div>
         </div>
     </div>
 </div>
+

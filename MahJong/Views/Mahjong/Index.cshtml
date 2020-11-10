@@ -1,4 +1,4 @@
-﻿
+﻿@model IEnumerable<MahJong.Models.db.table.Stores>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_MahjongLayout.cshtml";
@@ -36,19 +36,20 @@
                     <a href="products.html">view more <i class="fa fa-angle-right"></i></a>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="service-item">
-                    <a asp-controller="Mahjong" asp-action="Storedetail" class="services-item-image"><img src="~/mahjong/img/Replayground/repay.jpg" class="img-fluid" alt=""></a>
-
-                    <div class="down-content">
-                        <h4><a asp-controller="Mahjong" asp-action="Storedetail">Replayground</a></h4>
-                        <p style="margin: 0;" class="fontkanit"> เวลาปิดการจอง &nbsp;&nbsp;|&nbsp;&nbsp; 30/11/2020 17:00 </p>
-                        <p style="margin: 0;" class="fontkanit"> โต๊ะว่าง &nbsp;&nbsp;|&nbsp;&nbsp; 25 โต๊ะ </p>
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-item">
+                        <a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.s_id" class="services-item-image"><img src="~/mahjong/img/@Html.DisplayFor(modelItem => item.s_name)/profile.jpg" class="img-fluid" alt="@item.s_name"></a>
+                        <div class="down-content">
+                            <h4><a asp-controller="Mahjong" asp-action="Storedetail" asp-route-sid="@item.s_id">@Html.DisplayFor(modelItem => item.s_name)</a></h4>
+                            <p style="margin: 0;" class="fontkanit"> เวลาปิดการจอง &nbsp;&nbsp;|&nbsp;&nbsp; @Html.DisplayFor(modelItem => item.s_close_time)</p>
+                            <p style="margin: 0;" class="fontkanit"> โต๊ะว่าง &nbsp;&nbsp;|&nbsp;&nbsp; 25 โต๊ะ </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-        </div>
+            }
+          </div>
     </div>
 </div>
 

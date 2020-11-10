@@ -1,16 +1,16 @@
-﻿
+﻿@model MahJong.Models.db.table.Stores
 @{
     ViewData["Title"] = "Storedetail";
     Layout = "~/Views/Shared/_MahjongLayout.cshtml";
 }
 
 <!-- Page Content -->
-<div class="page-heading about-heading header-text" style="background-image: url(/mahjong/img/Replayground/repay3.jpg);">
+<div class="page-heading about-heading header-text" style="background-image: url(/mahjong/img/@Html.DisplayFor(model => model.s_name)/background.jpg);">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="text-content">
-                    <h2>Replayground</h2>
+                    <h2>@Html.DisplayFor(item => item.s_name)</h2>
                 </div>
             </div>
         </div>
@@ -18,7 +18,7 @@
 </div>
 
 <div class="container fontkanit" style="margin-top:5%;">
-    <p style="font-size:18px">เวลาปิดการจอง : <span>30/11/2020 17:00</span></p>
+    <p style="font-size:18px">เวลาปิดการจอง : <span>@Html.DisplayFor(item => item.s_close_time)</span></p>
     <p style="font-size:18px">ว่าง : <span>25 โต๊ะ</span></p>
 </div>
 
