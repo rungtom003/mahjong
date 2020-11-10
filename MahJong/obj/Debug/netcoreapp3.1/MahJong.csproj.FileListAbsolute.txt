@@ -412,7 +412,6 @@ C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debu
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Contact.cshtml.g.cs
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Index.cshtml.g.cs
-C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Register.cshtml.g.cs
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Store.cshtml.g.cs
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Storedetail.cshtml.g.cs
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
@@ -432,3 +431,4 @@ C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debu
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\MahJong.dll
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\MahJong.pdb
 C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\MahJong.genruntimeconfig.cache
+C:\Users\66623\Desktop\ร้านเหล้า\mahjong-main\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Register.cshtml.g.cs

@@ -47,8 +47,23 @@ namespace MahJong.Controllers
             var store = await _mahjongDBContext.Store.ToListAsync();
             return View(store);
         }
+
+        [HttpGet]
         public IActionResult Register()
         {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(Customer customer)
+        {
+            if (ModelState.IsValid)
+            {
+                _mahjongDBContext.Add(customer);
+                await _mahjongDBContext.SaveChangesAsync();
+                ViewBag.JavaScriptFunction = "Showsuccess()";
+                ModelState.Clear();
+            }
             return View();
         }
     }
