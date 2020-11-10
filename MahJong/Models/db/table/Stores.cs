@@ -8,7 +8,6 @@ namespace MahJong.Models.db.table
 {
     public class Stores
     {
-        [Key]
         public string s_id { get; set; }
         public string s_name { get; set; }
         public string s_tel { get; set; }
