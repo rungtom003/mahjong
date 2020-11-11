@@ -69,6 +69,7 @@ namespace MahJong.Controllers
             return View();
         }
 
+        [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
             var user = _mahjongDBContext.Customer.Where(s => s.CUsername == login.Username);

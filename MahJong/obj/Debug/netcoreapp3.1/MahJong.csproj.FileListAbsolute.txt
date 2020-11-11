@@ -591,3 +591,5 @@ C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\static
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\MahJong.dll
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\MahJong.pdb
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\MahJong.genruntimeconfig.cache
+C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Store\Order.cshtml.g.cs
+C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Store\Login.cshtml.g.cs
