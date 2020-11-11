@@ -24,6 +24,16 @@
                 <form asp-action="Register">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
+                        <label asp-for="CUsername" class="control-label"></label>
+                        <input asp-for="CUsername" class="form-control" />
+                        <span asp-validation-for="CUsername" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="CPassword" class="control-label"></label>
+                        <input asp-for="CPassword" class="form-control" type="password"/>
+                        <span asp-validation-for="CPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
                         <label asp-for="CFname" class="control-label"></label>
                         <input asp-for="CFname" class="form-control" />
                         <span asp-validation-for="CFname" class="text-danger"></span>

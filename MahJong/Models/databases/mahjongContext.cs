@@ -29,8 +29,8 @@ namespace MahJong.Models.databases
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=116.204.181.117;Initial Catalog=mahjong;User ID=sa;Password=Rungtom003;",
-                    options => options.EnableRetryOnFailure());
+                optionsBuilder.UseSqlServer("Data Source=116.204.181.117;Initial Catalog=mahjong;User ID=sa;Password=Rungtom003",
+                    options => options.EnableRetryOnFailure());          
             }
         }
 
@@ -164,6 +164,10 @@ namespace MahJong.Models.databases
             {
                 entity.HasKey(e => e.CId);
 
+                entity.HasIndex(e => e.CUsername)
+                    .HasName("IX_Customer")
+                    .IsUnique();
+
                 entity.Property(e => e.CId).HasColumnName("c_id");
 
                 entity.Property(e => e.CBirthdate)
@@ -178,8 +182,16 @@ namespace MahJong.Models.databases
                     .HasColumnName("c_lname")
                     .HasMaxLength(100);
 
+                entity.Property(e => e.CPassword)
+                    .HasColumnName("c_password")
+                    .HasMaxLength(50);
+
                 entity.Property(e => e.CTel)
                     .HasColumnName("c_tel")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.CUsername)
+                    .HasColumnName("c_username")
                     .HasMaxLength(50);
             });
 
