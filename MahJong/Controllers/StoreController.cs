@@ -25,7 +25,7 @@ namespace MahJong.Controllers
         }
         public async Task<IActionResult> Order()
         {
-            if (HttpContext.Session.GetString("username") == null)
+            if (HttpContext.Session.GetString("store_username") == null)
             {
                 return RedirectToAction(nameof(Login));
             }
@@ -45,16 +45,16 @@ namespace MahJong.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            var user = _mahjongDBContext.Customer.Where(s => s.CUsername == login.Username);
+            var user = _mahjongDBContext.AdminStore.Where(s => s.AsUsername == login.Password);
             if (await user.AnyAsync())
             {
-                if (await user.Where(s => s.CPassword == login.Password).AnyAsync())
+                if (await user.Where(s => s.AsPassword == login.Password).AnyAsync())
                 {
-                    var setuser = await _mahjongDBContext.Customer.Where(c => c.CUsername == login.Username && c.CPassword == login.Password).FirstOrDefaultAsync();
-                    HttpContext.Session.SetString("store_username", setuser.CUsername);
-                    HttpContext.Session.SetString("store_fname", setuser.CFname);
-                    HttpContext.Session.SetString("store_lname", setuser.CLname);
-                    HttpContext.Session.SetString("store_tel", setuser.CTel);
+                    var setuser = await _mahjongDBContext.AdminStore.Where(c => c.AsUsername == login.Username && c.AsPassword == login.Password).FirstOrDefaultAsync();
+                    HttpContext.Session.SetString("store_username", setuser.AsUsername);
+                    HttpContext.Session.SetString("store_fname", setuser.AsName);
+                    HttpContext.Session.SetString("store_lname", setuser.AsLname);
+                    HttpContext.Session.SetString("store_tel", setuser.AsTel);
                     return Json(new { status = true, message = "success" });
                 }
                 else

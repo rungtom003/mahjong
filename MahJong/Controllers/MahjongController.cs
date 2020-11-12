@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using MahJong.Models;
 using MahJong.Models.databases;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -21,8 +23,8 @@ namespace MahJong.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var store = await _mahjongDBContext.Store.ToListAsync();
-            return View(store);
+            var store = _mahjongDBContext.Store;
+            return View(await store.ToListAsync());
         }
 
         [HttpGet]
@@ -95,9 +97,29 @@ namespace MahJong.Controllers
             }          
         }
 
+        [HttpPost]
+        public IActionResult Loginfacebook(Login login)
+        {
+                if (login.Username != "" && login.Password != "")
+                {
+                    HttpContext.Session.SetString("username", login.Password);
+                    HttpContext.Session.SetString("fname", login.Username);
+                    HttpContext.Session.SetString("lname", login.Username);
+                    return Json(new { status = true, message = "success" });
+                }
+                else
+                {
+                    return Json(new { status = false, message = "Password ไม่ถูกต้อง !" });
+                }
+        }
+        
+
         public IActionResult Logout()
         {
-            HttpContext.Session.Clear();
+            HttpContext.Session.Remove("username");
+            HttpContext.Session.Remove("fname");
+            HttpContext.Session.Remove("lname");
+            HttpContext.Session.Remove("tel");
             return RedirectToAction(nameof(Index));
         }
     }

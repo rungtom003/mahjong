@@ -1,4 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Http
+@inject IAuthenticationSchemeProvider SchemeProvider
+@using Microsoft.AspNetCore.Authentication
 <!DOCTYPE html>
 <html lang="en">
 
@@ -80,15 +82,15 @@
                         {
                             <li class="nav-item dropdown" id="activeclass_o">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@Context.Session.GetString("fname").ToString()</a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" href="about-us.html">Profile</a>
-                                    <a class="dropdown-item" href="blog.html">เปลี่ยนรหัสผ่าน</a>
-                                    <a class="dropdown-item" href="testimonials.html">รายการจอง</a>
-                                    <a class="dropdown-item" href="terms.html">แจ้งชำระเงิน</a>
-                                </div>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Logout" id="activeclass_contact">ออกจากระบบ</a></li>
-                        }
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="about-us.html">Profile</a>
+                                <a class="dropdown-item" href="blog.html">เปลี่ยนรหัสผ่าน</a>
+                                <a class="dropdown-item" href="testimonials.html">รายการจอง</a>
+                                <a class="dropdown-item" href="terms.html">แจ้งชำระเงิน</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Logout" id="activeclass_contact" onclick="logoutf();">ออกจากระบบ</a></li>
+                    }
                     </ul>
                 </div>
             </div>
@@ -135,7 +137,7 @@
                         <p class="text-center">OR</p>
                         <hr />
                         <div class="text-center">
-                            <button type="button" class="btn btn-primary">Sign in with Facebook</button>
+                            <div class="fb-login-button" data-size="large" data-button-type="login_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false" data-width="" scope="public_profile,email" onlogin="successlogin();"></div>                          
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -147,13 +149,70 @@
         </div>
     </div>
 
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v9.0&appId=4854694337906441&autoLogAppEvents=1" nonce="jsf94p1i"></script>
+
     <!-- Bootstrap core JavaScript -->
     <script src="~/mahjong/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 
     <!-- Additional Scripts -->
     <script src="~/mahjong/assets/js/custom.js"></script>
     <script src="~/mahjong/assets/js/owl.js"></script>
     <script src="~/mahjong/js/myjs.js"></script>
+
+    <script>
+   
+        window.fbAsyncInit = function () {
+            FB.init({
+                appId: '4854694337906441',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v9.0'           // Use this Graph API version for this call.
+            });
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                    FB.api('/me', function (response) {
+                        console.log(response)
+                    });
+                }
+            }); 
+        };
+
+        function successlogin() {
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+                    FB.api('/me', function (response) {
+                        console.log(response)
+                        loginf(response.name, response.id)
+                    });
+                } 
+            });          
+        }
+     
+        function loginf(id,name) {
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '/Mahjong/Loginfacebook',
+                    data: {
+                        Username: id,
+                        Password: name
+                    },
+                    error: function (result) {
+                        alert("There is a Problem, Try Again!");
+                    },
+                    success: function (result) {
+                            window.location.href = "/Mahjong/Index";                      
+                    }
+                });
+        }
+
+        function logoutf() {
+            FB.logout(function (response) {
+                console.log(response)
+            });
+        }
+
+    </script>
 </body>
 </html>
