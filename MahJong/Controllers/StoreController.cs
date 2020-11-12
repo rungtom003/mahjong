@@ -45,7 +45,7 @@ namespace MahJong.Controllers
         [HttpPost]
         public async Task<IActionResult> Login(Login login)
         {
-            var user = _mahjongDBContext.AdminStore.Where(s => s.AsUsername == login.Password);
+            var user = _mahjongDBContext.AdminStore.Where(s => s.AsUsername == login.Username);
             if (await user.AnyAsync())
             {
                 if (await user.Where(s => s.AsPassword == login.Password).AnyAsync())
@@ -66,6 +66,15 @@ namespace MahJong.Controllers
             {
                 return Json(new { status = false, message = "Username ไม่ถูกต้อง !" });
             }
+        }
+
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Remove("store_username");
+            HttpContext.Session.Remove("store_fname");
+            HttpContext.Session.Remove("store_lname");
+            HttpContext.Session.Remove("store_tel");
+            return RedirectToAction(nameof(Index));
         }
     }
 }

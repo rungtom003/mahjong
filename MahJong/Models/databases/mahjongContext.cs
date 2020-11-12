@@ -149,6 +149,10 @@ namespace MahJong.Models.databases
 
                 entity.Property(e => e.TId).HasColumnName("t_id");
 
+                entity.Property(e => e.BdStatus)
+                .HasColumnName("bd_status")
+                .HasMaxLength(50);
+
                 entity.HasOne(d => d.B)
                     .WithMany(p => p.BookDetail)
                     .HasForeignKey(d => d.BId)

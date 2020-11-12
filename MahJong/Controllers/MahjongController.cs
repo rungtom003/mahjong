@@ -112,7 +112,6 @@ namespace MahJong.Controllers
                     return Json(new { status = false, message = "Password ไม่ถูกต้อง !" });
                 }
         }
-        
 
         public IActionResult Logout()
         {

@@ -21,6 +21,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
+                    if (item.BdStatus.ToString() == "จ่ายเเล้ว") {
                     <tr>
                         <td>@Html.DisplayFor(modelItem => item.BId)</td>
                         <td>@Html.DisplayFor(modelItem => item.B.C.CFname) @Html.DisplayFor(modelItem => item.B.C.CLname)</td>
@@ -29,6 +30,7 @@
                         <td>@Html.DisplayFor(modelItem => item.B.BDate)</td>
                         <td><bunton class="btn-link" id="callmodel" data-toggle="modal" data-target="#showtable" data-whatever="@item.T.TId">@Html.DisplayFor(modelItem => item.T.TName)</bunton></td>
                     </tr>
+                    }
                 }
             </tbody>
         </table>
