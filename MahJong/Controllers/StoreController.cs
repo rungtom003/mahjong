@@ -6,6 +6,7 @@ using MahJong.Models;
 using MahJong.Models.databases;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace MahJong.Controllers
@@ -37,6 +38,30 @@ namespace MahJong.Controllers
         }
 
         [HttpGet]
+        public IActionResult Addmember()
+        {
+            ViewBag.RasId = new SelectList(_mahjongDBContext.RightAdminStore, "RasId", "RasDetail");
+            ViewBag.SId = HttpContext.Session.GetString("Store_sid");
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Addmember(AdminStore adminStore)
+        {
+            if (ModelState.IsValid)
+            {
+                _mahjongDBContext.AdminStore.Add(adminStore);
+                await _mahjongDBContext.SaveChangesAsync();
+                ModelState.Clear();
+
+                ViewBag.JavaScriptFunction = true;
+                ViewBag.RasId = new SelectList(_mahjongDBContext.RightAdminStore, "RasId", "RasDetail");
+                ViewBag.SId = HttpContext.Session.GetString("Store_sid");
+            }
+            return View();
+        }
+
+        [HttpGet]
         public IActionResult Login()
         {
             return PartialView();
@@ -55,6 +80,7 @@ namespace MahJong.Controllers
                     HttpContext.Session.SetString("store_fname", setuser.AsName);
                     HttpContext.Session.SetString("store_lname", setuser.AsLname);
                     HttpContext.Session.SetString("store_tel", setuser.AsTel);
+                    HttpContext.Session.SetString("Store_sid", setuser.SId);
                     return Json(new { status = true, message = "success" });
                 }
                 else

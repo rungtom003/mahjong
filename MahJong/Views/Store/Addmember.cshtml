@@ -1,0 +1,69 @@
+﻿@model MahJong.Models.databases.AdminStore
+@{
+    ViewData["Title"] = "Addmember";
+    Layout = "~/Views/Shared/_StoreLayout.cshtml";
+}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Main content -->
+    <section class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Addmember">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="AsUsername" class="control-label"></label>
+                        <input asp-for="AsUsername" class="form-control" />
+                        <span asp-validation-for="AsUsername" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AsPassword" class="control-label"></label>
+                        <input asp-for="AsPassword" class="form-control" />
+                        <span asp-validation-for="AsPassword" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AsName" class="control-label"></label>
+                        <input asp-for="AsName" class="form-control" />
+                        <span asp-validation-for="AsName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AsLname" class="control-label"></label>
+                        <input asp-for="AsLname" class="form-control" />
+                        <span asp-validation-for="AsLname" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="AsTel" class="control-label"></label>
+                        <input asp-for="AsTel" class="form-control" />
+                        <span asp-validation-for="AsTel" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="RasId" class="control-label"></label>
+                        <select asp-for="RasId" class="form-control" asp-items="ViewBag.RasId"></select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="SId" class="control-label"></label>
+                        <input asp-for="SId" class="form-control" value="@ViewBag.SId" readonly />
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="เพิ่มสมาชิก" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@if (ViewBag.JavaScriptFunction == true)
+{
+    <script>
+        $(document).ready(function () {
+            Swal.fire(
+                'เพิ่ม Admin ร้าน',
+                'เพิ่ม Admin สำเร็จ',
+                'success'
+            )
+        });
+    </script>
+}

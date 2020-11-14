@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using MahJong.Models;
 using MahJong.Models.databases;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,11 +40,22 @@ namespace MahJong.Controllers
             {
                 return NotFound();
             }
+            var store_table = await _mahjongDBContext.Table.Where(t => t.SId == sid).ToListAsync();
+            IList<Table> tables = store_table;
+
+            if (store_table == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["store_table"] = tables;
             return View(store);
         }
+
         public IActionResult Contact() {
             return View();
         }
+
         public async Task<IActionResult> Store()
         {
             var store = await _mahjongDBContext.Store.ToListAsync();
@@ -80,6 +90,7 @@ namespace MahJong.Controllers
                 if (await user.Where(s => s.CPassword == login.Password).AnyAsync())
                 {
                     var setuser = await _mahjongDBContext.Customer.Where(c => c.CUsername == login.Username && c.CPassword == login.Password).FirstOrDefaultAsync();
+                    HttpContext.Session.SetInt32("cid", setuser.CId);
                     HttpContext.Session.SetString("username", setuser.CUsername);
                     HttpContext.Session.SetString("fname", setuser.CFname);
                     HttpContext.Session.SetString("lname", setuser.CLname);
@@ -111,6 +122,23 @@ namespace MahJong.Controllers
                 {
                     return Json(new { status = false, message = "Password ไม่ถูกต้อง !" });
                 }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Booktable(string sid,string tid)
+        {
+            var book = await _mahjongDBContext.Table.Include(b => b.S).FirstOrDefaultAsync(b => b.SId == sid && b.TName == tid);
+            return View(book);
+        }
+        [HttpPost]
+        public IActionResult Booktable(BookTable bookTable)
+        {
+            return View();
+        }
+
+        public IActionResult Payment()
+        {
+            return View();
         }
 
         public IActionResult Logout()

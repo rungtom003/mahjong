@@ -1,0 +1,122 @@
+﻿@model MahJong.Models.databases.Table
+@using Microsoft.AspNetCore.Http
+@{
+    ViewData["Title"] = "Booktable";
+    Layout = "~/Views/Shared/_MahjongLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url();">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2 class="fontkanit">ชำระเงิน</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container text-center mt-5">
+    <div class="card">
+        <div class="card-body">
+            <div class="container">
+                <div class="row mb-3">
+                    <h2>Mahjong.com</h2>
+                </div>
+                <hr />
+                <div class="row">
+                    <table width="100%">
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">วันที่</td>
+                            <td align="left">12/08/2548</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">ชื่อผู้จอง</td>
+                            <td align="left">รุ่งชัย นาคศรี</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">เบอร์โทร</td>
+                            <td align="left">0658965896</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr />
+                <div class="row">
+                    <table width="100%">
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">ร้าน</td>
+                            <td align="left">@Html.DisplayFor(item => item.S.SName)</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">โต๊ะ</td>
+                            <td align="left">@Html.DisplayFor(item => item.TName)</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">ที่อยู่</td>
+                            <td align="left">@Html.DisplayFor(item => item.S.SAddress) @Html.DisplayFor(item => item.S.SDistrict) @Html.DisplayFor(item => item.S.SProvince)</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr />
+                <div class="row">
+                    <table width="100%">
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">รวมเป็นเงิน</td>
+                            <td align="left">@Html.DisplayFor(item => item.TPrice) บาท</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">ส่วนลด</td>
+                            <td align="left">00.00 บาท</td>
+                        </tr>
+                        <tr>
+                            <td align="left" width="50%" style="color:green;">จำนวนเงินรวมทั้งสิ้น</td>
+                            <td align="left">@Html.DisplayFor(item => item.TPrice) บาท</td>
+                        </tr>
+                    </table>
+                </div>
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>
+<div class="text-center mt-3">
+    <button class="btn btn-danger">ยกเลิก</button>
+    <button class="btn btn-success">ดำเนินการชำระเงิน</button>
+</div>
+
+<script>
+    function submitbook() {
+        let datetime = new Date();
+        $.ajax(
+            {
+                type: "POST",
+                url: '/Mahjong/Booktable',
+                data: {
+                    c_id: $('#username').val(),
+                    b_quantity: @Context.Session.GetInt32("cid"),
+                    b_priceTotal: @Html.DisplayFor(item => item.TPrice).ToString(),
+                    b_date: datetime,
+                    t_id: @Html.DisplayFor(item => item.TId).ToString()
+            },
+                error: function (result) {
+                    alert("There is a Problem, Try Again!");
+                },
+                success: function (result) {
+                    console.log(result);
+                    if (result.status == true) {
+                        window.location.href = "/Mahjong/Index";
+                    }
+                    else {
+                        Swal.fire(
+                            'ล็อคอิน',
+                            '' + result.message + '',
+                            'warning'
+                        )
+                    }
+                }
+            });
+    }
+</script>
+
