@@ -9153,25 +9153,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\6300964\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\66623\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\6300964\\Desktop\\ASP core\\mahjong\\MahJong\\MahJong.csproj",
+      "projectUniqueName": "C:\\Users\\66623\\Desktop\\ร้านเหล้า\\mahjong\\MahJong\\MahJong.csproj",
       "projectName": "MahJong",
-      "projectPath": "C:\\Users\\6300964\\Desktop\\ASP core\\mahjong\\MahJong\\MahJong.csproj",
-      "packagesPath": "C:\\Users\\6300964\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\6300964\\Desktop\\ASP core\\mahjong\\MahJong\\obj\\",
+      "projectPath": "C:\\Users\\66623\\Desktop\\ร้านเหล้า\\mahjong\\MahJong\\MahJong.csproj",
+      "packagesPath": "C:\\Users\\66623\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\66623\\Desktop\\ร้านเหล้า\\mahjong\\MahJong\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\6300964\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\66623\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -9239,7 +9234,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

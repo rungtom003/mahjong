@@ -10,7 +10,7 @@ namespace MahJong.Models.databases
             BookDetail = new HashSet<BookDetail>();
         }
 
-        public int BId { get; set; }
+        public string BId { get; set; }
         public int? CId { get; set; }
         public int? BQuantity { get; set; }
         public double? BPriceTotal { get; set; }

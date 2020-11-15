@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MahJong.Models.databases.BookDetail>
+@{
+    ViewData["Title"] = "Myorder";
+    Layout = "~/Views/Shared/_MahjongLayout.cshtml";
+}
+
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url();">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2 class="fontkanit">รายการของฉัน</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>เลขที่</td>
+                <td>ชื่อ</td>
+                <td>ราคารวม</td>
+                <td>วันที่จอง</td>
+                <td>ร้าน</td>
+                <td>ชื่อโต๊ะ</td>
+                <td>สถานะการจอง</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.BId)</td>
+                <td>@Html.DisplayFor(modelItem => item.B.C.CFname) @Html.DisplayFor(modelItem => item.B.C.CLname)</td>
+                <td>@Html.DisplayFor(modelItem => item.B.BPriceTotal)</td>
+                <td>@Html.DisplayFor(modelItem => item.B.BDate)</td>
+                <td>@Html.DisplayFor(modelItem => item.T.S.SName)</td>
+                <td>@Html.DisplayFor(modelItem => item.T.TName)</td>
+                <td>@Html.DisplayFor(modelItem => item.BdStatus)</td>
+                @if(item.BdStatus.ToString() == "จ่ายเเล้ว"){<td><button type="button" class="btn btn-danger">ลบ</button></td>}
+            </tr>               
+            }
+        </tbody>
+    </table>
+</div>
+

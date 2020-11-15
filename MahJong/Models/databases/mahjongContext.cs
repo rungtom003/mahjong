@@ -29,8 +29,7 @@ namespace MahJong.Models.databases
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=116.204.181.117;Initial Catalog=mahjong;User ID=sa;Password=Rungtom003",
-                    options => options.EnableRetryOnFailure());          
+                optionsBuilder.UseSqlServer("Data Source=116.204.181.117;Initial Catalog=mahjong;User ID=sa;Password=Rungtom003");
             }
         }
 
@@ -121,7 +120,9 @@ namespace MahJong.Models.databases
             {
                 entity.HasKey(e => e.BId);
 
-                entity.Property(e => e.BId).HasColumnName("b_id");
+                entity.Property(e => e.BId)
+                    .HasColumnName("b_id")
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.BDate)
                     .HasColumnName("b_date")
@@ -145,13 +146,15 @@ namespace MahJong.Models.databases
 
                 entity.Property(e => e.BdId).HasColumnName("bd_id");
 
-                entity.Property(e => e.BId).HasColumnName("b_id");
-
-                entity.Property(e => e.TId).HasColumnName("t_id");
+                entity.Property(e => e.BId)
+                    .HasColumnName("b_id")
+                    .HasMaxLength(50);
 
                 entity.Property(e => e.BdStatus)
-                .HasColumnName("bd_status")
-                .HasMaxLength(50);
+                    .HasColumnName("bd_status")
+                    .HasMaxLength(50);
+
+                entity.Property(e => e.TId).HasColumnName("t_id");
 
                 entity.HasOne(d => d.B)
                     .WithMany(p => p.BookDetail)

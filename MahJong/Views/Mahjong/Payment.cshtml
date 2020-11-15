@@ -1,8 +1,43 @@
-﻿
+﻿@model MahJong.Models.Images
 @{
     ViewData["Title"] = "Payment";
     Layout = "~/Views/Shared/_MahjongLayout.cshtml";
 }
 
-<h1>Payment</h1>
+<!-- Page Content -->
+<div class="page-heading about-heading header-text" style="background-image: url();">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="text-content">
+                    <h2 class="fontkanit">แจ้งชำระเงิน</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="container">
+    <div class="text-center">
+        <div class="row">
+            <div class="col-md-4">
+                <form asp-action="Payment" enctype="multipart/form-data" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Title" class="control-label"></label>
+                        <select asp-for="Title" class="form-control" asp-items="ViewBag.item"></select>
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ImageFile" class="control-label"></label>
+                        <input asp-for="ImageFile" accept="/image/*" />
+                        <span asp-validation-for="ImageFile" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Upload" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

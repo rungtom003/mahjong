@@ -85,8 +85,8 @@
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="about-us.html">Profile</a>
                                 <a class="dropdown-item" href="blog.html">เปลี่ยนรหัสผ่าน</a>
-                                <a class="dropdown-item" href="testimonials.html">รายการจอง</a>
-                                <a class="dropdown-item" href="terms.html">แจ้งชำระเงิน</a>
+                                <a class="dropdown-item" asp-controller="Mahjong" asp-action="Myorder">รายการจอง</a>
+                                <a class="dropdown-item" asp-controller="Mahjong" asp-action="Payment">แจ้งชำระเงิน</a>
                             </div>
                         </li>
                         <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Logout" id="activeclass_contact" onclick="logoutf();">ออกจากระบบ</a></li>

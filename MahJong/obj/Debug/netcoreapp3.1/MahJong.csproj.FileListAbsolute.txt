@@ -759,3 +759,7 @@ C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\bin\Debug\netcoreapp3.1\Micros
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Store\Addmember.cshtml.g.cs
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Booktable.cshtml.g.cs
 C:\Users\6300964\Desktop\ASP core\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Payment.cshtml.g.cs
+C:\Users\66623\Desktop\ร้านเหล้า\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Booktable.cshtml.g.cs
+C:\Users\66623\Desktop\ร้านเหล้า\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Payment.cshtml.g.cs
+C:\Users\66623\Desktop\ร้านเหล้า\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Store\Addmember.cshtml.g.cs
+C:\Users\66623\Desktop\ร้านเหล้า\mahjong\MahJong\obj\Debug\netcoreapp3.1\Razor\Views\Mahjong\Myorder.cshtml.g.cs

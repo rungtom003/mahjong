@@ -34,11 +34,11 @@
                         </tr>
                         <tr>
                             <td align="left" width="50%" style="color:green;">ชื่อผู้จอง</td>
-                            <td align="left">รุ่งชัย นาคศรี</td>
+                            <td align="left">@Context.Session.GetString("fname")  @Context.Session.GetString("lname")</td>
                         </tr>
                         <tr>
                             <td align="left" width="50%" style="color:green;">เบอร์โทร</td>
-                            <td align="left">0658965896</td>
+                            <td align="left">@Context.Session.GetString("tel")</td>
                         </tr>
                     </table>
                 </div>
@@ -83,40 +83,37 @@
 </div>
 <div class="text-center mt-3">
     <button class="btn btn-danger">ยกเลิก</button>
-    <button class="btn btn-success">ดำเนินการชำระเงิน</button>
+    <button class="btn btn-success" id="btnpayment" type="button">ดำเนินการชำระเงิน</button>
 </div>
 
 <script>
-    function submitbook() {
-        let datetime = new Date();
-        $.ajax(
-            {
-                type: "POST",
-                url: '/Mahjong/Booktable',
-                data: {
-                    c_id: $('#username').val(),
-                    b_quantity: @Context.Session.GetInt32("cid"),
-                    b_priceTotal: @Html.DisplayFor(item => item.TPrice).ToString(),
-                    b_date: datetime,
-                    t_id: @Html.DisplayFor(item => item.TId).ToString()
-            },
-                error: function (result) {
-                    alert("There is a Problem, Try Again!");
-                },
-                success: function (result) {
-                    console.log(result);
-                    if (result.status == true) {
-                        window.location.href = "/Mahjong/Index";
+    $(document).ready(function () {
+        function submitbook() {
+            let datetime = new Date();
+            $.ajax(
+                {
+                    type: "POST",
+                    url: '/Mahjong/Booktable',
+                    data: {
+                        c_id: @Context.Session.GetInt32("cid").ToString(),
+                        b_quantity: 1,
+                        b_priceTotal: @Model.TPrice,
+                        b_date: datetime,
+                        t_id: @Model.TId,
+                    },
+                    error: function (result) {
+                        alert("There is a Problem, Try Again!");
+                    },
+                    success: function (result) {
+                        window.location.href = "/Mahjong/Payment";
                     }
-                    else {
-                        Swal.fire(
-                            'ล็อคอิน',
-                            '' + result.message + '',
-                            'warning'
-                        )
-                    }
-                }
-            });
-    }
+                });
+        }
+
+        $("#btnpayment").click(function (e) {
+            e.preventDefault();
+            submitbook();
+        })
+    });
 </script>
 
