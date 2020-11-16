@@ -61,17 +61,7 @@
 
                         <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Store" id="activeclass_store">ร้าน</a></li>
 
-                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Contact" id="activeclass_contact">ติดต่อ</a></li>
-
-                        <li class="nav-item dropdown" id="activeclass_o">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">อื่นๆ</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="about-us.html">About Us</a>
-                                <a class="dropdown-item" href="blog.html">Blog</a>
-                                <a class="dropdown-item" href="testimonials.html">Testimonials</a>
-                                <a class="dropdown-item" href="terms.html">Terms</a>
-                            </div>
-                        </li>
+                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Contact" id="activeclass_contact">ติดต่อ</a></li>                      
 
                         @if (@Context.Session.GetString("username") == null)
                         {
@@ -82,15 +72,15 @@
                         {
                             <li class="nav-item dropdown" id="activeclass_o">
                                 <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">@Context.Session.GetString("fname").ToString()</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="about-us.html">Profile</a>
-                                <a class="dropdown-item" href="blog.html">เปลี่ยนรหัสผ่าน</a>
-                                <a class="dropdown-item" asp-controller="Mahjong" asp-action="Myorder">รายการจอง</a>
-                                <a class="dropdown-item" asp-controller="Mahjong" asp-action="Payment">แจ้งชำระเงิน</a>
-                            </div>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Logout" id="activeclass_contact" onclick="logoutf();">ออกจากระบบ</a></li>
-                    }
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="about-us.html">Profile</a>
+                                    <a class="dropdown-item" href="blog.html">เปลี่ยนรหัสผ่าน</a>
+                                    <a class="dropdown-item" asp-controller="Mahjong" asp-action="Myorder">รายการจอง</a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Payment">แจ้งชำระเงิน</a></li>
+                            <li class="nav-item"><a class="nav-link" asp-controller="Mahjong" asp-action="Logout" id="activeclass_contact" onclick="logoutf();">ออกจากระบบ</a></li>
+                        }
                     </ul>
                 </div>
             </div>

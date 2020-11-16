@@ -1,5 +1,4 @@
-﻿
-function Validate() {
+﻿function Validate() {
     $.ajax(
             {
                 type: "POST",
@@ -30,6 +29,11 @@ $("#btnlogin").click(function (e) {
     e.preventDefault();
     Validate();
 })
+
+function showlogin() {
+    $('#modalLogin').modal('show')
+}
+
 
 
 
